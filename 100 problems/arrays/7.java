@@ -1,3 +1,7 @@
+//Given an array where 1 <= a[i] <= n, find all elements that appear more than once. Return them in any order. 
+Sample Input: arr = [4,3,2,7,8,2,3,1] Expected Output: [2, 3]
+
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

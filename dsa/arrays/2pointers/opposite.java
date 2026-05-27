@@ -9,7 +9,7 @@ target = 9
   
 📤 Output
 text
-[1, 2]
+[0, 1]
 
 int left = 0;
 int right = arr.length - 1;

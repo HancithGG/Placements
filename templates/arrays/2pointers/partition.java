@@ -1,3 +1,4 @@
+// foundation for quicksort algorithm
 int slow = 0;
 
 for(int fast = 0; fast < arr.length; fast++){

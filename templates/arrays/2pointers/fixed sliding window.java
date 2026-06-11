@@ -1,3 +1,11 @@
+Subarray
++
+Window size fixed
++
+Need answer for every window
+=
+Fixed Sliding Window
+
 int left = 0;
 int windowValue = 0;
 

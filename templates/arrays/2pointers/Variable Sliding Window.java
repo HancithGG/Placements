@@ -1,3 +1,12 @@
+Subarray
++
+Window size not fixed
++
+Need longest/shortest valid window
+=
+Variable Sliding Window
+
+
 int left = 0;
 int windowValue = 0;
 

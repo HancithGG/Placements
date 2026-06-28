@@ -1,30 +1,17 @@
-public class Main {
-    public static void sortByParity(int[] nums) {
+public static void even1st(int[] arr) {
+       
+        
         int left = 0;
-        int right = nums.length - 1;
 
-        while (left < right) {
+        for(int right=0; right<arr.length; right++){
 
-            while (left < right && nums[left] % 2 == 0)
+            if(arr[right] % 2 == 0){
+
+                int temp = arr[right];
+                arr[right] = arr[left];
+                arr[left] = temp;
+
                 left++;
-
-            while (left < right && nums[right] % 2 == 1)
-                right--;
-
-            if (left < right) {
-                int temp = nums[left];
-                nums[left] = nums[right];
-                nums[right] = temp;
             }
+
         }
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {3,1,2,4};
-
-        sortByParity(nums);
-
-        for(int num : nums)
-            System.out.print(num + " ");
-    }
-}

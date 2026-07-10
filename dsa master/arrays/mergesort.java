@@ -1,3 +1,25 @@
+mergeSort(0,4)
+│
+├── mergeSort(0,2)
+│   │
+│   ├── mergeSort(0,1)
+│   │   │
+│   │   ├── mergeSort(0,0) ✅ return
+│   │   ├── mergeSort(1,1) ✅ return
+│   │   └── merge(0,0,1)
+│   │
+│   ├── mergeSort(2,2) ✅ return
+│   └── merge(0,1,2)
+│
+├── mergeSort(3,4)
+│   ├── mergeSort(3,3) ✅ return
+│   ├── mergeSort(4,4) ✅ return
+│   └── merge(3,3,4)
+│
+└── merge(0,2,4)
+
+
+
 public class MergeSort {
 
     // Merge two sorted halves

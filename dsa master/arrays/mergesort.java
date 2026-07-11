@@ -1,3 +1,11 @@
+        [7,2,9,1,5]
+          /      \
+      [7,2]    [9,1,5]
+      /   \     /    \
+    [7] [2]   [9]  [1,5]
+                   /   \
+                 [1]   [5]
+
 mergeSort(0,4)
 │
 ├── mergeSort(0,2)
@@ -23,7 +31,7 @@ mergeSort(0,4)
 public class MergeSort {
 
     // Merge two sorted halves
-    static void merge(int[] arr, int left, int mid, int right) {
+    static void merge(int[] arr, int left, int mid, int right) {                                                      
 
         int n1 = mid - left + 1;
         int n2 = right - mid;

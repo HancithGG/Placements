@@ -13,3 +13,8 @@ class Solution {
     }
 }
 
+//main
+             // here = matter while printing
+for(int i=0; i<=result; i++){
+    System.out.println(arr[i]);
+}

@@ -51,34 +51,28 @@ public class DFSExample {
 }
 
 
-// iterative
+// iterative dfs same as preorder in tree traversal
 
-Stack<Integer> stack = new Stack<>();
-boolean[] visited = new boolean[n];
+static void dfsIterative(ArrayList<ArrayList<Integer>> graph, int start){
+        boolean[] visited = new boolean[graph.size()];
+        Stack<Integer> stack = new Stack<>();
+        visited[start] = true;
+        stack.push(start);
 
-stack.push(start);
+        while (!stack.isEmpty()) {
+            int current = stack.pop();
+            System.out.print(current + " ");
 
-while (!stack.isEmpty()) {
+            for(int i=graph.get(current).size() - 1; i>=0; i--){
+                int neighbour = graph.get(current).get(i);
 
-    int current = stack.pop();
-
-    if (visited[current]) {
-        continue;
-    }
-
-    visited[current] = true;
-
-    System.out.print(current + " ");
-
-    for (int i = graph.get(current).size() - 1; i >= 0; i--) {
-
-        int neighbor = graph.get(current).get(i);
-
-        if (!visited[neighbor]) {
-            stack.push(neighbor);
+                if(!visited[neighbour]){
+                    visited[neighbour] = true;
+                    stack.push(neighbour);
+                }
+            }
         }
     }
-}
 
 // in main method call
 dfs(graph,0);

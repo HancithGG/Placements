@@ -4,11 +4,11 @@ def binary_search(arr, target):
     
     while left <= right:
         mid = left + (right - left) // 2
-        guess = arr[mid]
+       
         
-        if guess == target:
+        if arr[mid] == target:
             return mid
-        if guess < target:
+        if arr[mid] < target:
             left = mid + 1
         else:
             right = mid - 1

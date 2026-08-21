@@ -1,7 +1,7 @@
 import heapq
 
 def dijkstra(graph, start):
-    # graph: adjacency list {u: [(v, weight), ...]}
+    # graph: adjacency list {node: [(neighbor, weight), ...]}
     # start: source node
     # returns: shortest distance dict
 
@@ -13,17 +13,17 @@ def dijkstra(graph, start):
     pq = [(0, start)]  # (distance, node)
 
     while pq:
-        current_dist, u = heapq.heappop(pq)
+        current_dist, current_node = heapq.heappop(pq)
 
         # Skip if we already found a better path
-        if current_dist > dist[u]:
+        if current_dist > dist[current_node]:
             continue
 
         # Relax edges
-        for v, weight in graph[u]:
-            if dist[u] + weight < dist[v]:
-                dist[v] = dist[u] + weight
-                heapq.heappush(pq, ( dist[v], v))
+        for neighbor, weight in graph[current_node]:
+            if current_dist + weight < dist[neighbor]:
+                dist[neighbor] = current_dist + weight
+                heapq.heappush(pq, (dist[neighbor], neighbor))
 
     return dist
 
@@ -35,6 +35,10 @@ graph = {
     2: [(1, 2), (3, 5)],
     3: []
 }
+
+print(dijkstra(graph, 0))
+# → {0: 0, 1: 3, 2: 1, 3: 4}
+
 
 print(dijkstra(graph, 0))
 # → {0: 0, 1: 3, 2: 1, 3: 4}

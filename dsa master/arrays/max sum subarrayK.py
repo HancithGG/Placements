@@ -11,7 +11,8 @@ def max_sum_subarray_k(nums, k):
 
     # slide the window
     for i in range(k, n):
-        window_sum += nums[i] - nums[i - k]
+        window_sum += nums[i]
+        window_sum -=  nums[i - k]
         max_sum = max(max_sum, window_sum)
 
     return max_sum

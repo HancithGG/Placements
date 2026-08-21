@@ -10,10 +10,10 @@ def dijkstra(graph, start):
     dist[start] = 0
 
     # Min-heap priority queue
-    pq = [(0, start)]  # (distance, node)
+    pq = [(start, 0)]  # (distance, node)
 
     while pq:
-        current_dist, u = heapq.heappop(pq)
+        u, current_dist = heapq.heappop(pq)
 
         # Skip if we already found a better path
         if current_dist > dist[u]:
@@ -23,7 +23,7 @@ def dijkstra(graph, start):
         for v, weight in graph[u]:
             if dist[u] + weight < dist[v]:
                 dist[v] = dist[u] + weight
-                heapq.heappush(pq, (dist[v], v))
+                heapq.heappush(pq, (v, dist[v]))
 
     return dist
 

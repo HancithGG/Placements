@@ -1,4 +1,4 @@
-//fixed sliding window
+#fixed sliding window
 
 def max_sum_subarray_k(nums, k):
     n = len(nums)

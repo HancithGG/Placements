@@ -21,3 +21,20 @@ print("DFS starting from node 0:")
 visited = set()
 dfs_recursive(graph, 0)
 
+# dfs iterative
+def dfs_iterative(graph, start):
+    visited = set()
+    stack = [start]
+
+    while stack:
+        node = stack.pop()
+        if node not in visited:
+            visited.add(node)
+            print(node, end=" ")
+            # Add neighbors to stack
+            # reversed() keeps traversal order similar to recursion
+            for neighbour in reversed(graph.get(node, [])):
+                if neighbour not in visited:
+                    stack.append(neighbour)
+                    
+dfs_iterative(graph, 0)

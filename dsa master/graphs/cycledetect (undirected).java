@@ -1,88 +1,37 @@
-import java.util.*;
+def dfs(graph, node, parent, visited):
+    visited.add(node)
 
-public class CycleDetection {
+    for neighbour in graph.get(node, []):
+        if neighbour not in visited:
+            if(dfs(graph, neighbour, node, visited)):
+                return True
 
-    static boolean dfs(
-            ArrayList<ArrayList<Integer>> graph,
-            int current,
-            int parent,
-            boolean[] visited) {
+        elif neighbour != parent:
+            return True
+        
+    return False
 
-        visited[current] = true;
+def cycle(graph):
+    visited = set()
 
-        for (int neighbor : graph.get(current)) {
+    for node in graph:
+        if node not in visited:
+            if(dfs(graph, node, -1, visited)):
+                print(True)
+                return
 
-            // If neighbor is not visited,
-            // continue DFS
-            if (!visited[neighbor]) {
+    print(False)
+    return
+            
 
-                if (dfs(graph, neighbor, current, visited)) {
-                    return true;
-                }
-
-            }
-            // Already visited and not our parent
-            else if (neighbor != parent) {
-
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    static boolean hasCycle(
-            ArrayList<ArrayList<Integer>> graph) {
-
-        int n = graph.size();
-
-        boolean[] visited = new boolean[n];
-
-        // Handles disconnected graphs
-        for (int i = 0; i < n; i++) {
-
-            if (!visited[i]) {
-
-                if (dfs(graph, i, -1, visited)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    public static void main(String[] args) {
-
-        int n = 4;
-
-        ArrayList<ArrayList<Integer>> graph =
-                new ArrayList<>();
-
-        for (int i = 0; i < n; i++) {
-            graph.add(new ArrayList<>());
-        }
-
-        // 0 -- 1
-        graph.get(0).add(1);
-        graph.get(1).add(0);
-
-        // 1 -- 2
-        graph.get(1).add(2);
-        graph.get(2).add(1);
-
-        // 2 -- 0  → creates cycle
-        graph.get(2).add(0);
-        graph.get(0).add(2);
-
-        // 2 -- 3
-        graph.get(2).add(3);
-        graph.get(3).add(2);
-
-        if (hasCycle(graph)) {
-            System.out.println("Cycle exists");
-        } else {
-            System.out.println("No cycle");
-        }
-    }
+graph = {
+    0: [1],
+    1: [0],
+    2: [3],
+    3: [2],
+    4: []
 }
+
+
+
+cycle(graph)

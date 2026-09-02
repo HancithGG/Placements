@@ -27,8 +27,8 @@ def dfs_iterative(graph, start):
     stack = [start]
 
     while stack:
-        node = stack.pop()
-        if node not in visited:
+        node = stack.pop()                                                                  take this as input            0
+        if node not in visited:                                                                                         1    2        cycle dfs
             visited.add(node)
             print(node, end=" ")
             # Add neighbors to stack

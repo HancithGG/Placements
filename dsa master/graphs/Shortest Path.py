@@ -6,7 +6,7 @@ def dijkstra(graph, start):
     # returns: shortest distance dict
 
     # Initialize distances
-    dist = {node: float('inf') for node in graph}
+    dist = {node: float('inf') for node in graph}             #look look -inf means max -ve
     dist[start] = 0
 
     # Min-heap priority queue

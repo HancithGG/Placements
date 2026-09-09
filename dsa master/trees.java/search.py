@@ -34,6 +34,19 @@ def search_bst(root, value):
       #----------------
       # recursive 
 
+def search_bst_recursive(root, value):
+
+    if root is None:
+        return False
+
+    if root.value == value:
+        return True
+
+    if value < root.value:
+        return search_bst_recursive(root.left, value)
+
+    return search_bst_recursive(root.right, value)
+
 def main():
     # Create BST
     root = Node(50)

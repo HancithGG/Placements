@@ -14,3 +14,14 @@ from main import total_xp
 )
 def test_total_xp(level, xp_to_add, expected):
     assert total_xp(level, xp_to_add) == expected            # use python -v or -s to run test cases
+
+#another option manually mulitple asserts
+from main import total_xp
+
+def test_total_xp_manual():
+    assert total_xp(1, 100) == 200
+    assert total_xp(2, 250) == 450
+    assert total_xp(170, 590) == 17590
+    assert total_xp(176, 350) == 17950
+    assert total_xp(0, 0) == 0
+    assert total_xp(5, 0) == 500
